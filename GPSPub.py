@@ -52,11 +52,10 @@ def publish_to_topic(topic, message):
     print("")
 
 
-# MQTT Settings
+# MQTT Config
 MQTT_Broker = "broker.mqttdashboard.com"
 MQTT_Port = 1883
 Keep_Alive_Interval = 30
-
 MQTT_Topic_Acceleration = "LocationalData/Topics/GPS"
 
 mqttc = mqtt.Client()
@@ -71,6 +70,8 @@ s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 #s.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
 s.bind((host, port))
+
+
 syntax = {
   1:  ['gps', 'lat', 'lon', 'alt'],     # deg, deg, meters MSL WGS84
   3:  ['accel', 'x', 'y', 'z'],         # m/s/s

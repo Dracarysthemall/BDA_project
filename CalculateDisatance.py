@@ -30,5 +30,5 @@ def minOfDistancesByClient(id):
         f.write("id:"+str(row[2])+", distance:"+str(dist)+"\n")
     f.close()    
     return minTaxi
-print("[TaxiID"+str(minOfDistancesByClient(3)))
+print("[TaxiID, minDistance]="+str(minOfDistancesByClient(3)))
 
