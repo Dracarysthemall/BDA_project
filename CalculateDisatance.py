@@ -14,6 +14,7 @@ c = conn.cursor()
 
 def minOfDistancesByClient(id):
     min=10000
+    minTaxi=[]
     c.execute('SELECT lat, lon FROM Client where id=?',[id])
     data = c.fetchone()
     latClt=data[0]
@@ -25,8 +26,9 @@ def minOfDistancesByClient(id):
         dist=distance(latClt, lonClt, row[0], row[1])
         if(dist<min):
             min=dist
+            minTaxi=[row[2],min]
         f.write("id:"+str(row[2])+", distance:"+str(dist)+"\n")
     f.close()    
-    return min
-print(str(minOfDistancesByClient(3)))
+    return minTaxi
+print("[TaxiID"+str(minOfDistancesByClient(3)))
 
